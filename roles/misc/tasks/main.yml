@@ -1,0 +1,9 @@
+- name: install basic commands
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - git
+    - bzip2
+    - vim
+  become: true

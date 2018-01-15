@@ -1,0 +1,22 @@
+- name: check if nodejs is installed
+  shell: rpm -qa | grep nodejs
+  register: result
+  failed_when: result.rc not in [0,1]
+
+- name: download nodejs
+  get_url:
+    url: https://rpm.nodesource.com/setup_9.x
+    dest: /tmp/nodejs.sh
+  when: result.rc != 0
+
+- name: install the NodeSource Node.js 9.x repo
+  shell: bash /tmp/nodejs.sh
+  become: true
+  when: result.rc != 0
+
+- name: yum install nodejs
+  yum:
+    name: nodejs
+    state: present
+  become: true
+  when: result.rc != 0

@@ -1,0 +1,7 @@
+- name: open tcp port 3000
+  firewalld:
+    port: 3000/tcp
+    permanent: true
+    state: enabled
+    immediate: true
+  become: true
