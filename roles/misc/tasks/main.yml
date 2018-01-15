@@ -7,3 +7,13 @@
     - bzip2
     - vim
   become: true
+
+- name: disable SELinux
+  selinux:
+    state: disabled
+  become: true
+
+- name: deploy vimrc file
+  copy:
+    src: roles/misc/files/.vimrc
+    dest: ~/.vimrc
