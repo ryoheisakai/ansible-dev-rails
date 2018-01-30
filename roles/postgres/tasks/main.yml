@@ -1,0 +1,38 @@
+- name: install the repository RPM
+  yum:
+    name: https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-1.noarch.rpm
+    state: present
+  become: true
+  tags:
+    - postgres
+
+- name: yum install postgres 10
+  yum:
+    name: postgresql10
+    state: present
+  become: true
+  tags:
+    - postgres
+
+- name: yum install postgres 10 server
+  yum:
+    name: postgresql10-server
+    state: present
+  become: true
+  tags:
+    - postgres
+
+- name: check if initdb is done
+  stat:
+    path: /var/lib/pgsql/10/data/PG_VERSION
+  register: dbcluster
+  become: true
+  tags:
+    - postgres
+
+- name: initdb
+  shell: /usr/pgsql-10/bin/postgresql-10-setup initdb
+  become: true
+  when: not dbcluster.stat.exists
+  tags:
+    - postgres

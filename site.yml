@@ -5,6 +5,7 @@
     - rails
     - nodejs
     - firewalld
+    - postgres
   vars:
     git_version: 1.8.3.1
     ruby_version: 2.5.0
