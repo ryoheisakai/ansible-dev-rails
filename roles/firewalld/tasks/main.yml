@@ -5,3 +5,5 @@
     state: enabled
     immediate: true
   become: true
+  tags:
+    - firewalld

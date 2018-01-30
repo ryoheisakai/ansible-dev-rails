@@ -36,3 +36,12 @@
   when: not dbcluster.stat.exists
   tags:
     - postgres
+
+- name: enable postgresql service
+  systemd:
+    name: postgresql-10
+    enabled: yes
+    state: started
+  become: true
+  tags:
+    - postgres
