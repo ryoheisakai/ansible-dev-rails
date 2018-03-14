@@ -14,6 +14,14 @@
   tags:
     - postgres
 
+- name: yum install postgres 10 devel
+  yum:
+    name: postgresql10-devel
+    state: present
+  become: true
+  tags:
+    - postgres
+
 - name: yum install postgres 10 server
   yum:
     name: postgresql10-server
