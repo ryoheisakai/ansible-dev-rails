@@ -1,6 +1,6 @@
 - name: install the repository RPM
   yum:
-    name: https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-1.noarch.rpm
+    name: "{{ postgres_base_url }}{{ postgres_rpm }}"
     state: present
   become: true
   tags:

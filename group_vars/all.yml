@@ -1,0 +1,4 @@
+#postgres
+
+postgres_base_url: https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/
+postgres_rpm: pgdg-centos10-10-2.noarch.rpm

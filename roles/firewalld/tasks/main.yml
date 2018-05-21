@@ -1,9 +1,15 @@
-- name: open tcp port 3000
-  firewalld:
-    port: 3000/tcp
-    permanent: true
-    state: enabled
-    immediate: true
-  become: true
-  tags:
-    - firewalld
+#- name: open tcp port 3000
+#  firewalld:
+#    port: 3000/tcp
+#    permanent: true
+#    state: enabled
+#    immediate: true
+#  become: true
+#  tags:
+#    - firewalld
+
+- name: stop and disable firewalld
+  service:
+    name: firewalld
+    state: stopped
+    enabled: false

@@ -16,7 +16,7 @@
     - install
 
 - name: check ruby rbenv installed
-  shell: cd; bash -lc "rbenv versions | grep {{ ruby_version }}  | tr '*' ' ' | sed -e 's/\s\+//' | cut -f1 -d' '"
+  shell: cd; bash -lc "~/.rbenv/bin/rbenv versions | grep {{ ruby_version }}  | tr '*' ' ' | sed -e 's/\s\+//' | cut -f1 -d' '"
   register: ruby_installed
   ignore_errors: yes
   tags:
